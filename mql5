@@ -1,0 +1,87 @@
+
+//+------------------------------------------------------------------+
+//|         Fractal Advanced MT5                                       |
+//|         Developer's Site: forexroboteasy.com                      |
+//|         Developed by: Forex Robot Easy Team                        |
+//+------------------------------------------------------------------+
+
+#include <Fractals.mqh>
+#include <Alligator.mqh>
+
+//+------------------------------------------------------------------+
+//| Global variables                                                  |
+//+------------------------------------------------------------------+
+int maxFractals = 5; // Maximum number of fractals to display
+bool enableAlerts = true; // Enable custom alerts
+bool enableHotkeys = true; // Enable hotkeys
+
+//+------------------------------------------------------------------+
+//| Custom alerts system                                              |
+//+------------------------------------------------------------------+
+void CustomAlert(string message)
+{
+   if (enableAlerts)
+   {
+      Alert(message);
+      PlaySound('alert.wav');
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Hotkey system                                                     |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id, const long &lparam, const double &dparam, const string &sparam)
+{
+   if (enableHotkeys)
+   {
+      if (id == CHARTEVENT_KEYDOWN)
+      {
+         if (sparam == 'F1')
+         {
+            // Perform action for hotkey F1
+            CustomAlert('Hotkey F1 pressed!');
+         }
+         else if (sparam == 'F2')
+         {
+            // Perform action for hotkey F2
+            CustomAlert('Hotkey F2 pressed!');
+         }
+         // Add more hotkeys as needed
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Fractal Advanced MT5 initialization                              |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   ChartSetInteger(0, CHART_SCALEX, maxFractals);
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Fractal Advanced MT5 deinitialization                            |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Perform necessary cleanup before closing the program
+}
+
+//+------------------------------------------------------------------+
+//| Fractal Advanced MT5 start function                               |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+   // Perform market analysis using Fractal and Alligator indicators
+   // Display relevant fractal signals on the chart
+   // Adjust the number of fractals on the chart by scrolling the mouse while holding down the Shift key
+   // Implement custom alerts system for important market events
+   // Implement hotkey system for quick access to important features and functions
+   // Test the code thoroughly to ensure accurate functionality
+   // Ensure the code is compatible with the MT5 trading platform
+   // Provide clear and concise code documentation for easy understanding and future maintenance
+   // Deliver the code within the agreed timeline
+}
+
+//+------------------------------------------------------------------+
